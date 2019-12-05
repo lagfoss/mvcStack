@@ -1,0 +1,931 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:300,400,700&display=swap");
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+/* Slider */
+.slick-loading .slick-list {
+  background: #fff url("./ajax-loader.gif") center center no-repeat;
+}
+
+/* Icons */
+@font-face {
+  font-family: "slick";
+  src: url("./fonts/slick.eot");
+  src: url("./fonts/slick.eot?#iefix") format("embedded-opentype"), url("./fonts/slick.woff") format("woff"), url("./fonts/slick.ttf") format("truetype"), url("./fonts/slick.svg#slick") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Arrows */
+.slick-prev,
+.slick-next {
+  position: absolute;
+  display: block;
+  height: 20px;
+  width: 20px;
+  line-height: 0px;
+  font-size: 0px;
+  cursor: pointer;
+  background: transparent;
+  color: transparent;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.slick-prev:hover, .slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
+  outline: none;
+  background: transparent;
+  color: transparent;
+}
+
+.slick-prev:hover:before, .slick-prev:focus:before,
+.slick-next:hover:before,
+.slick-next:focus:before {
+  opacity: 1;
+}
+
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before {
+  opacity: 0.25;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-family: "slick";
+  font-size: 20px;
+  line-height: 1;
+  color: white;
+  opacity: 0.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev {
+  left: -25px;
+}
+
+[dir="rtl"] .slick-prev {
+  left: auto;
+  right: -25px;
+}
+
+.slick-prev:before {
+  content: "←";
+}
+
+[dir="rtl"] .slick-prev:before {
+  content: "→";
+}
+
+.slick-next {
+  right: -25px;
+}
+
+[dir="rtl"] .slick-next {
+  left: -25px;
+  right: auto;
+}
+
+.slick-next:before {
+  content: "→";
+}
+
+[dir="rtl"] .slick-next:before {
+  content: "←";
+}
+
+/* Dots */
+.slick-dotted.slick-slider {
+  margin-bottom: 30px;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: -25px;
+  list-style: none;
+  display: block;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.slick-dots li button {
+  border: 0;
+  background: transparent;
+  display: block;
+  height: 20px;
+  width: 20px;
+  outline: none;
+  line-height: 0px;
+  font-size: 0px;
+  color: transparent;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.slick-dots li button:hover, .slick-dots li button:focus {
+  outline: none;
+}
+
+.slick-dots li button:hover:before, .slick-dots li button:focus:before {
+  opacity: 1;
+}
+
+.slick-dots li button:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "•";
+  width: 20px;
+  height: 20px;
+  font-family: "slick";
+  font-size: 6px;
+  line-height: 20px;
+  text-align: center;
+  color: black;
+  opacity: 0.25;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-dots li.slick-active button:before {
+  color: black;
+  opacity: 0.75;
+}
+
+/* Slider */
+.slick-slider {
+  position: relative;
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.slick-list:focus {
+  outline: none;
+}
+
+.slick-list.dragging {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slick-track:before, .slick-track:after {
+  content: "";
+  display: table;
+}
+
+.slick-track:after {
+  clear: both;
+}
+
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+
+.slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  display: none;
+}
+
+[dir="rtl"] .slick-slide {
+  float: right;
+}
+
+.slick-slide img {
+  display: block;
+}
+
+.slick-slide.slick-loading img {
+  display: none;
+}
+
+.slick-slide.dragging img {
+  pointer-events: none;
+}
+
+.slick-initialized .slick-slide {
+  display: block;
+}
+
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+
+.slick-arrow.slick-hidden {
+  display: none;
+}
+
+body {
+  background-color: #fff;
+  font-size: 16px;
+  margin: 0;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.vitesterlige {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.site-header .header__logo {
+  width: 98px;
+  height: 40px;
+}
+
+.site-header .nav-primary {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.site-header .nav-primary__item--left {
+  float: left;
+}
+
+.site-header .nav-primary__item--right {
+  float: right;
+}
+
+.site-header .nav-primary__link--image {
+  display: block;
+  font-size: 16px;
+  color: black;
+  font-family: "Ubuntu", sans-serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.site-header .nav-primary__link {
+  display: block;
+  font-size: 16px;
+  color: black;
+  font-family: "Ubuntu", sans-serif;
+  text-align: center;
+  padding: 26px 16px;
+  text-decoration: none;
+}
+
+.site-header .fas {
+  margin-right: 10px;
+}
+
+.intro {
+  background: #F3F4F5;
+  width: 100%;
+  padding: 50px 0px 50px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.intro .intro__button {
+  color: white;
+  background-color: #262D47;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.intro .intro__wrapper-left {
+  float: left;
+}
+
+.intro .intro__wrapper-right {
+  float: right;
+}
+
+.intro .intro__image {
+  width: 342px;
+  height: 321px;
+}
+
+.intro .intro__title {
+  font-size: 36px;
+  color: #707070;
+  text-transform: uppercase;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+}
+
+.intro .intro__text {
+  font-size: 16px;
+  color: #707070;
+  font-family: "Ubuntu", sans-serif;
+  width: 65%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.services-frontPage {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #FFFFFF;
+}
+
+.services-frontPage .services__title {
+  font-size: 36px;
+  color: #707070;
+  text-transform: uppercase;
+  font-family: "Ubuntu", sans-serif;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.services-frontPage .services-button-hover {
+  padding-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.services-frontPage .services__btn {
+  color: white;
+  background-color: #262D47;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.services-frontPage .services-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.services-frontPage .services__hover {
+  -webkit-transition: -webkit-box-shadow .3s;
+  transition: -webkit-box-shadow .3s;
+  transition: box-shadow .3s;
+  transition: box-shadow .3s, -webkit-box-shadow .3s;
+  padding: 40px 20px 16px;
+  min-height: 50px;
+  margin-bottom: 20px;
+  max-width: 320px;
+}
+
+.services-frontPage .services__hover .services-focusbox__title {
+  color: black;
+  font-size: 24px;
+  color: #707070;
+  text-transform: uppercase;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.services-frontPage .services__hover .services-focusbox__text {
+  font-size: 16px;
+  color: #262D47;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.services-frontPage .services__hover .fas {
+  color: black;
+  font-size: 50px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+
+.services-frontPage .services__hover:hover {
+  -webkit-box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+          box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
+
+.partner {
+  background: #464C62;
+}
+
+.partner .partner__title {
+  font-size: 36px;
+  color: #707070;
+  text-transform: uppercase;
+  font-family: "Ubuntu", sans-serif;
+  color: #fff;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.partner .partner__imageWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding-bottom: 50px;
+}
+
+.partner .partner__imageWrapper .partner__img {
+  width: 200px;
+  height: 133px;
+}
+
+.about {
+  padding: 50px 0px 50px 0px;
+  background-color: #F3F4F5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+}
+
+.about__wrapper-left {
+  float: left;
+}
+
+.about__wrapper-right {
+  float: right;
+}
+
+.about__image {
+  width: 600px;
+  height: 300px;
+}
+
+.about__title {
+  font-size: 36px;
+  color: #707070;
+  text-transform: uppercase;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+}
+
+.about__text {
+  font-size: 16px;
+  color: #707070;
+  font-family: "Ubuntu", sans-serif;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.services-about {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #FFFFFF;
+}
+
+.services-about .about-services__title {
+  text-align: center;
+  padding-bottom: 50px;
+  font-size: 36px;
+  color: #707070;
+  text-transform: uppercase;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.services-about .about-services__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.services-about .about-services__hover {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 33.33%;
+          flex: 0 0 33.33%;
+  -webkit-transition: -webkit-box-shadow .3s;
+  transition: -webkit-box-shadow .3s;
+  transition: box-shadow .3s;
+  transition: box-shadow .3s, -webkit-box-shadow .3s;
+  padding: 40px 20px 16px;
+  min-height: 50px;
+  margin-bottom: 20px;
+  max-width: 320px;
+}
+
+.services-about .about-services__hover .about-focusbox__title {
+  font-weight: 700;
+  font-size: 24px;
+  color: #707070;
+  text-transform: uppercase;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.services-about .about-services__hover .about-focusbox__text {
+  font-weight: 400;
+  font-size: 16px;
+  color: #262D47;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.services-about .about-services__hover .fas {
+  color: black;
+  font-size: 50px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+
+.services-about .about-services__hover:hover {
+  -webkit-box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+          box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
+
+.contact-informations {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background: #F3F4F5;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.contact-informations .contact__company--dark, .contact-informations .contact__phone--dark, .contact-informations .contact__email--dark, .contact-informations .contact__vat--dark {
+  color: #262D47;
+}
+
+.contact-informations .contact__address {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.contact-informations .contact__company {
+  margin-bottom: 0;
+}
+
+.contact-informations .contact__email {
+  margin-top: 0;
+}
+
+.contact-informations .contact__phone {
+  margin-bottom: 0;
+}
+
+.contact-informations .form-group__field {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0px 20px 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.contact-informations .form-group__label {
+  font-size: 16px;
+  color: #262D47;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.contact-informations .btn {
+  color: white;
+  background-color: #262D47;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  float: right;
+}
+
+.contact-informations .contact-informations__wrapper {
+  width: 60%;
+}
+
+.contact-informations .contact-informations__title {
+  font-size: 36px;
+  color: #707070;
+  text-transform: uppercase;
+  font-family: "Ubuntu", sans-serif;
+  padding-bottom: 20px;
+}
+
+.contact-informations .contact__title {
+  font-size: 36px;
+  color: #707070;
+  text-transform: uppercase;
+  font-family: "Ubuntu", sans-serif;
+  padding-bottom: 20px;
+}
+
+.contact-informations .contact__wrapper {
+  width: 40%;
+  padding-left: 100px;
+}
+
+.contact-members {
+  background: #464C62;
+  padding: 40px 40px;
+}
+
+.contact-members .contact-members__wrapper {
+  max-width: 200px;
+}
+
+.contact-members .contact-members__title {
+  text-align: center;
+  padding: 8px 4px 50px;
+  font-size: 36px;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.contact-members .contact-members__img {
+  width: 99px;
+  height: 115px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.contact-members .contact-members__phone, .contact-members .contact-members__name, .contact-members .contact-members__email {
+  font-size: 10px;
+  color: #fff;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+}
+
+.contact-members .contact-members__job {
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.contact-members .testcontact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.google-maps {
+  height: 250px;
+}
+
+.services {
+  color: #fff;
+  background: #464C62;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 25px 0;
+}
+
+.services__wrapper {
+  display: block;
+}
+
+.login {
+  background-image: url("../Image/login.png");
+  background-size: 100%;
+  height: 650px;
+  position: relative;
+}
+
+.login__wrapper {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 30px;
+  width: 400px;
+  height: 350px;
+  background-color: #F3F4F5;
+}
+
+.login__wrapper .input-field {
+  width: 100%;
+  margin: 8px 0px 20px 0px;
+  padding: 10px 0 10px 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.login__wrapper .btn-wrapper {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+
+.login__wrapper .action-link {
+  float: right;
+  font-size: 16px;
+  color: #262D47;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.login__wrapper .login__email, .login__wrapper .login__password {
+  margin: 0;
+  font-size: 16px;
+  color: #262D47;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.login__wrapper .login__title {
+  padding-bottom: 20px;
+  font-size: 30px;
+  color: #707070;
+  text-transform: uppercase;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.login__wrapper .login__button {
+  color: white;
+  background-color: #262D47;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.login__wrapper label {
+  display: inline-block;
+}
+
+.login__wrapper h2 {
+  text-align: center;
+}
+
+.footer {
+  background: #171C30;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.footer .contact .contact__company--light, .footer .contact .contact__address--light, .footer .contact .contact__phone--light, .footer .contact .contact__email--light, .footer .contact .contact__vat--light {
+  font-size: 16px;
+  color: #fff;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.footer .contact .contact__address, .footer .contact .contact__company {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.footer .nav-secondary__item a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.footer .nav-secondary-wrapper {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.footer .contact {
+  width: 53%;
+  text-align: left;
+}
+
+.footer .nav-secondary {
+  width: 35%;
+}
+
+.footer .socialmedia {
+  width: 30%;
+  text-align: right;
+}
+
+.footer .fa-facebook-square, .footer .fa-instagram, .footer .fa-linkedin {
+  font-size: 40px;
+  color: #fff;
+}
+
+.footer .fa-instagram {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.footer .nav-secondary-wrapper {
+  margin: 0;
+}
+
+.footer .socialmedia__title, .footer .nav-secondary__title, .footer .contact__title {
+  font-size: 24px;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Ubuntu", sans-serif;
+  padding-bottom: 20px;
+}
+
+.footer .contact__address {
+  margin: 0;
+}
+
+.footer .contact__phone {
+  margin-bottom: 0;
+}
+
+.footer .contact__email {
+  margin-top: 0;
+}
+/*# sourceMappingURL=app.css.map */

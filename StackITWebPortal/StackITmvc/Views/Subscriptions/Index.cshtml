@@ -1,0 +1,57 @@
+﻿@model IEnumerable<StackITmvc.Models.Subscription>
+
+@{
+    ViewData["Title"] = "Subscriptions";
+}
+
+<h1>Subscriptions</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SubscriptionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hardware)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubscriptionJobs)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubscriptionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hardware.HardwareName)
+            </td>
+            <td>
+                @{
+                    foreach (var job in item.SubscriptionJobs)
+                    {
+                        @job.Job.JobName <br />
+                    }
+                }
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SubscriptionId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SubscriptionId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SubscriptionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

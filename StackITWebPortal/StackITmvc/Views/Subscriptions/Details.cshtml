@@ -1,0 +1,69 @@
+﻿@model StackITmvc.Models.Subscription
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Subscription</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubscriptionName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubscriptionName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Company)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Company.CompanyName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.K_AdminSubscriptions)
+        </dt>
+        <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>Full Name</th>
+                </tr>
+                @foreach (var item in Model.K_AdminSubscriptions)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.K_Admin.FullName)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Hardware)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Hardware.HardwareName)
+        </dd>
+        <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>Jobs</th>
+                </tr>
+                @foreach (var item in Model.SubscriptionJobs)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Job.JobName)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.SubscriptionId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

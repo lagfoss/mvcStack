@@ -1,0 +1,560 @@
+@import "reset";
+@import "vars";
+@import "mixins";
+@import "slick-theme";
+@import "slick";
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,700&display=swap');
+
+body {
+    @include body();
+}
+
+.flex {
+    display: $flex;
+}
+
+
+//Styling for the frontpage
+
+.vitesterlige { //Det skal have et andet navn
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+
+//Header
+.site-header {
+    .header__logo {
+        width: 98px; //need to change to better dimensions
+        height: 40px; //need to change to better dimensions
+    }
+    .nav-primary {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .nav-primary__item--left {
+        float: $NavigationLeft;
+    }
+
+    .nav-primary__item--right {
+        float: $NavigationRight; 
+    }
+
+    .nav-primary__link--image {
+        display: block;
+        @include bodyText($fontSize, black, $fontFamily);
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .nav-primary__link {
+        display: block;
+        @include bodyText($fontSize, black, $fontFamily);
+        text-align: center;
+        padding: 26px 16px;
+        text-decoration: none;
+    }
+
+    .fas {
+        margin-right: 10px;
+    }
+}
+
+
+
+// frontpage-header-section
+.intro {
+    background: $HeaderBgColor;
+    width: 100%;
+    padding: 50px 0px 50px 0px;
+    display: $flex;
+    flex-direction: row;
+
+    .intro__button {
+        @include button();
+    }
+    .intro__wrapper-left {
+        float: $floatLeft;
+    }
+
+    .intro__wrapper-right {
+        float: $floatRight;
+    }
+
+    .intro__image {
+        width: 342px;
+        height: 321px;
+    }
+
+    .intro__title {
+        @include headerText($headerFontSize, $fontColor, $fontFamily);
+        font-weight: 700;
+    }
+
+    .intro__text {
+        @include bodyText($fontSize, $fontColor, $fontFamily);
+        width: 65%;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+// frontpage-Services-section
+.services-frontPage {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: $BgColor1;
+
+    .services__title {
+        @include headerText($headerFontSize, $fontColor, $fontFamily);
+        text-align: center;
+        padding-bottom: 50px;
+    }
+    .services-button-hover {
+        padding-top: 50px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .services__btn {
+        @include button();
+        font-family: $fontFamily;
+    }
+
+    .services-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .services__hover {
+        transition: box-shadow .3s;
+        padding: 40px 20px 16px;
+        min-height: 50px;
+        margin-bottom: 20px;
+        max-width: 320px;
+
+        .services-focusbox__title {
+            color: black;
+            @include headerText(24px, $fontColor, $fontFamily);
+        }
+
+        .services-focusbox__text {
+           @include bodyText($fontSize, $FontColorDark, $fontFamily);
+        }
+
+        .fas {
+            color: black;
+            font-size: 50px;
+            padding-left: 20px;
+            padding-bottom: 10px;
+        }
+
+        &:hover {
+            box-shadow: 0 0 11px rgba(33,33,33,.2); 
+        }
+    }
+    
+}
+
+
+// frontpage-Solution-section
+
+
+// frontpage-partner-section
+.partner {
+    
+    background: $BgColor2;
+    .partner__title {
+        @include headerText($headerFontSize, $fontColor, $fontFamily);
+        color: $FontColorBright;
+        text-align: center;
+        padding-top: 50px;
+        padding-bottom: 20px;
+    }
+
+    .partner__imageWrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding-bottom: 50px;
+
+        .partner__img {
+            width: 200px;
+            height: 133px;
+        }
+    }
+    
+}
+
+
+
+
+//About stackIT
+.about {
+    padding: 50px 0px 50px 0px;
+    background-color: $HeaderBgColor;
+    display: $flex;
+    flex-direction: row;
+    width: 100%;
+}
+.about__wrapper-left {
+    float: $floatLeft;
+}
+
+.about__wrapper-right {
+    float: $floatRight;
+}
+
+.about__image {
+    width: 600px;
+    height: 300px;
+}
+
+.about__title{
+    @include headerText($headerFontSize, $fontColor, $fontFamily);
+    font-weight: 700;
+}
+
+.about__text{
+    @include bodyText($fontSize, $fontColor, $fontFamily);
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+//Services section in About page
+.services-about{
+    padding-top: 50px;
+    padding-bottom: 50px;  
+    background-color: $BgColor1; 
+
+    .about-services__title{
+        text-align: center;
+        padding-bottom: 50px;
+        @include headerText($headerFontSize, $fontColor, $fontFamily);
+    }
+
+    .about-services__wrapper{ 
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly; 
+    }
+
+    .about-services__hover{
+        flex: 0 0 33.33%;
+        transition: box-shadow .3s;
+        padding: 40px 20px 16px;
+        min-height: 50px;
+        margin-bottom: 20px;
+        max-width: 320px;
+    
+
+        .about-focusbox__title{
+            font-weight: 700;
+            @include headerText(24px, $fontColor, $fontFamily);
+        }
+
+        .about-focusbox__text {
+            font-weight: 400;
+            @include bodyText($fontSize, $FontColorDark, $fontFamily);
+        }
+
+        .fas {
+            color: black;
+            font-size: 50px;
+            padding-left: 20px;
+            padding-bottom: 10px;
+        }
+
+        &:hover {
+            box-shadow: 0 0 11px rgba(33,33,33,.2); 
+        }
+    }
+}
+   
+
+
+
+
+
+    
+
+
+//Contact page
+.contact-informations {
+    display: flex;
+    flex-direction: row;
+    background: $HeaderBgColor;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    .contact__company--dark, .contact__phone--dark, .contact__email--dark, .contact__vat--dark {
+        color: $FontColorDark;
+    }
+
+    .contact__address {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .contact__company {
+        margin-bottom: 0;
+    }
+
+    .contact__email {
+        margin-top: 0;
+    }
+
+    .contact__phone {
+        margin-bottom: 0;
+    }
+
+    .form-group__field {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0px 20px 0px;
+        box-sizing: border-box;
+    }
+
+    .form-group__label {
+        @include bodyText($fontSize, $FontColorDark, $fontFamily);
+    }
+
+    .btn {
+        @include button();
+        float: $floatRight;
+    }
+
+    .contact-informations__wrapper {
+        width: 60%;
+    }
+    
+    .contact-informations__title {
+        @include headerText($headerFontSize, $fontColor, $fontFamily);
+        padding-bottom: 20px;
+    }
+    
+    .contact__title {
+        @include headerText($headerFontSize, $fontColor, $fontFamily);
+        padding-bottom: 20px;
+    }
+
+    .contact__wrapper {
+        width: 40%;
+        padding-left: 100px;
+    }
+
+}
+
+
+//Our Members
+.contact-members{
+    background: $BgColor2;
+    padding: 40px 40px;
+
+    .contact-members__wrapper{
+        max-width: 200px;
+    }
+
+    .contact-members__title{
+        text-align: center;
+        padding: 8px 4px 50px;
+        @include headerText($headerFontSize, $FontColorBright, $fontFamily);
+    }
+    
+    .contact-members__img{
+        width: 99px;
+        height: 115px;
+        box-sizing: border-box;
+    }
+    .contact-members__phone,.contact-members__name,.contact-members__email{
+        @include bodyText(10px, $FontColorBright, $fontFamily);
+        font-weight: 400;
+    }
+    
+    .contact-members__job {
+        font-weight: 700;
+        @include headerText(14px, $FontColorBright, $fontFamily);
+    }
+
+    .testcontact{
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+ 
+//map
+
+.google-maps {
+    height: 250px;
+}
+
+
+
+
+
+
+
+
+// Our services
+.services {
+    color: $FontColorBright;
+    background:$BgColor2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 25px 0;
+}
+
+.services__wrapper {
+    display: block;
+}
+
+
+//loginpage
+.login{
+    background-image: url('../Image/login2.png');
+    background-size: 100% ;
+        height: 650px;
+    position: relative;
+}
+
+//login form
+
+.login__wrapper {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 30px;
+    width: 400px;
+    height: 350px;
+    background-color: $HeaderBgColor;
+    
+    .input-field {
+        width: 100%;
+        margin: 8px 0px 20px 0px;
+        padding: 10px 0 10px 10px;
+        box-sizing: border-box;
+    }
+    //button positioning using the padding 30px for bomttom and left
+    .btn-wrapper {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+    }
+
+    .action-link {
+        float: $floatRight;
+        @include bodyText($fontSize, $FontColorDark, $fontFamily);
+    }
+
+    .login__email, .login__password {
+        margin: 0;
+        @include bodyText($fontSize, $FontColorDark, $fontFamily);
+    }
+
+    .login__title {
+        padding-bottom: 20px;
+        @include headerText(30px, $fontColor, $fontFamily);
+    }
+
+    .login__button {
+        @include button();
+    }
+
+    label {
+        display: inline-block;
+    }
+
+    h2 {
+        text-align: center;
+        
+    }
+
+    
+}
+
+//Styling for the footer
+.footer {
+    background: $FooterBgColor;
+    padding-top: 50px;
+    padding-bottom: 50px;
+     
+    // Contact information
+    .contact {
+        .contact__company--light, .contact__address--light, .contact__phone--light, .contact__email--light, .contact__vat--light {
+            @include bodyText($fontSize, $FontColorBright, $fontFamily);
+        }
+
+        .contact__address, .contact__company {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+    
+
+    // Shortcuts
+    .nav-secondary__item a{
+        text-decoration: none;
+        @include bodyText($fontSize, $FontColorBright, $fontFamily);
+    }
+    .nav-secondary-wrapper {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    // Social media
+
+    .contact {
+        width: 53%;
+        text-align: left;
+    }
+
+    .nav-secondary {
+        width: 35%;
+    }
+
+    .socialmedia {
+        width: 30%;
+        text-align: right;
+    }
+
+    .fa-facebook-square, .fa-instagram, .fa-linkedin {
+        font-size: 40px;
+        color: $FontColorBright;
+    }
+
+    .fa-instagram {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+    .nav-secondary-wrapper {
+        margin: 0;
+    }
+    
+    .socialmedia__title, .nav-secondary__title, .contact__title {
+        @include headerText(24px, $FontColorBright, $fontFamily);
+        padding-bottom: 20px;
+    }
+    
+    .contact__address {
+        margin: 0;
+    }
+
+    .contact__phone {
+        margin-bottom: 0;
+    }
+
+    .contact__email {
+        margin-top: 0;
+    }
+}
+
